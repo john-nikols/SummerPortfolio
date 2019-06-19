@@ -46,25 +46,25 @@ img {
 	 margin-left: auto;
     margin-right: auto;
 }
-#header div ul.navigation {
+.navigation {
 	
 	padding :0;
 	list-style-type :none;
 	position :absolute;
-	left :90px;
+	left :160px;
 	top :160px;
 	overflow :hidden;
 	/*height: 250px;*/
 	width: 900px;
 	
 }
-#header div ul.navigation li {
+.navigation li {
 	float :left;
 }
-#header div ul.navigation li:first-child a {
+.navigation li:first-child a {
 	padding-left :0;
 }
-#header div ul.navigation li a {
+.navigation li a {
 	text-decoration :none;
 	margin :0px 0px 0px 10px;
 	padding :10px 10px 0px 10px;
@@ -73,10 +73,10 @@ img {
 	color :#ffffff;
 	width :960px;
 }
-#header div ul.navigation li a:hover {
+.navigation li a:hover {
 	color :#ACACAC;
 }
-#header div ul.navigation li a.active {
+.navigation li a.active {
 	color :#ffffff;
 }
 #body {
