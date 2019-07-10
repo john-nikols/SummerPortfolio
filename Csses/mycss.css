@@ -240,22 +240,16 @@ footer div {
   
 .contact {
 
-	position: relative;
-	left: 600px;
-	bottom: 170px;
-	width: 300px;
-	height: 300px;
+	position: absolute;
+	left: 700px;
+	bottom: 100px;
+	width: 100px;
+	height: 50px;
 	
 }
 
 
 
-#contactForm {
-	position: relative;
-	right: 50px;
-	bottom: 300px;
-	
-}
 
 table,th,td {
 		border:2px solid black;
