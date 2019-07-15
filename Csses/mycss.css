@@ -1,3 +1,5 @@
+@media screen and (max-width: 320px) { @viewport { width: 320px; } }   @media screen and (min-width: 768px) and (max-width: 959px) { @viewport { width: 768px; } }
+@media screen and (max-width: 320px) { @viewport { width: 320px; } }
 
 body {
 	margin :0;
@@ -54,11 +56,11 @@ img {
 }
 
 .navigation {
-	
+	box-align: center;
 	padding :0;
 	list-style-type :none;
 	position :absolute;
-	left :165px;
+	left :170px;
 	top :160px;
 	overflow :hidden;
 	width: 900px;
@@ -209,14 +211,16 @@ p {
 
 
 footer div {
-	width :955px;
+	width :933px;
 	margin :0 auto;
-	
+	position: relative;
+	left: 280px;
 }
 
 
 .footer-menu {
-	text-align:center;
+	
+	text-align: center;
 	color:#fff;
 	line-height: 12px;
 }

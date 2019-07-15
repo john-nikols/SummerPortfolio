@@ -1,8 +1,10 @@
-function sendData(form) {
-    var guessNum = form.inputbox.value;
-    var randNum = Math.round( Math.random() * 201 ) - 100;
+var randNum = Math.round( Math.random() * 201 ) - 100;
+function loadData(){
+    onload(randNum = Math.round( Math.random() * 201 ) - 100);
+}
 
-   
+function sendData(form) {
+    var guessNum = form.inputbox.value; 
    guessNum = parseFloat(guessNum);
    // get value from text box
 
