@@ -12,6 +12,7 @@ let myDog = {
 
 }
 
+
 console.log(myDog.coatType);
 myDog.bark();
 console.log(myDog);
