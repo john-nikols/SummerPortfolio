@@ -1,9 +1,9 @@
 let url ="http://api.openweathermap.org/data/2.5/forecast?q=Salt+Lake+City,usa&appid=c46c3dbc33a029eaa2adbef7151e94bc";
 
-function loadDoc() { 
-    
+window.onload = function loadDoc() { 
+    document.getElementById("column").innerHTML = dayData;
   //---------------------
-  // This is where you would get references to all 
+  // This is where yogu would get references to all 
   // HTML elements that you want to update with new data 
   // based on the results of the asynchronous API call you make below 
   //---------------------
@@ -30,9 +30,22 @@ function loadDoc() {
         let currentDay = dayData.list[counter]; 
         console.log(currentDay);
 
+
        } 
        
+// Pulling out the dt_text value (date/time) 
+// and parsing it to a JavaScript date 
+let weatherDate = new Date(currentDay.dt_txt + ' UTC'); 
+console.log(weatherDate); 
 
+// Pulling the month from the data for comparison 
+// Remember, JavaScript months are zero indexed 
+// to get the right moneth for comparison, you 
+// will need to add 1 to it 
+console.log(weatherDate.getMonth() + 1); 
+
+// Pulling the day of the month from the date object 
+console.log(weatherDate.getDate()); 
 
       } else { 
           
@@ -51,5 +64,5 @@ function loadDoc() {
 // Make sure you call the function to begin the request for information 
 // In the weather widget, you will want to call this function using the 
 // onClick event of the form submit button 
-loadDoc(); 
+
 //---------------------
