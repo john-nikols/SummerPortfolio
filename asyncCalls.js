@@ -10,60 +10,49 @@ function loadDoc() {
   
   var xhttp = new XMLHttpRequest(); 
   xhttp.onreadystatechange = function() { 
-    if (this.readyState == 4 && this.status == 200) { 
-          
-          //---------------------
-          console.log("Successful..."); 
-          //console.log(this.response); 
-          // This is where you would update the HTML elements above 
-          // with the data you pull from the API call response 
-          // document.getElementById("demo").innerHTML = this.responseText; 
-          //---------------------
-         
+  if (this.readyState == 4 && this.status == 200) { 
 
+    //---------------------
+    console.log("Successful..."); 
+    //console.log(this.response); 
+    // This is where you would update the HTML elements above 
+    // with the data you pull from the API call response 
+    // document.getElementById("demo").innerHTML = this.responseText; 
+    //---------------------
 
-       let dayData = JSON.parse(this.response);
-      // console.log(dayData.list);  
-       //console.log(dayData.list.length);  
-      
-       let d = new Date();
-       let targetDayCount = 0;
-       let temp = []; 
-        for(let counter = 0; counter < dayData.list.length; counter++){
-            let targetDay = d.getFullYear() + "-0" + (d.getMonth() + 1) + "-" + (d.getDate() + targetDayCount) + " " + "12:00:00";
-            let currentDay = dayData.list[counter]; 
-            console.log(currentDay);
-                if(currentDay.dt_txt == targetDay) {
+    let dayData = JSON.parse(this.response);
+    // console.log(dayData.list);  
+    //console.log(dayData.list.length);  
 
-                    temp.push({temp: currentDay.main.temp, 
-                               description: currentDay.weather[0].description
-                             }); 
-                    console.log(temp);
-                    targetDayCount++;
-                } 
-       
-// Pulling out the dt_text value (date/time) 
-// and parsing it to a JavaScript date 
-        let weatherDate = new Date(currentDay.dt_txt + ' UTC'); 
-        console.log(weatherDate); 
+    let d = new Date();
+    let targetDayCount = 1;
+    let temp = []; 
+    for(let counter = 0; counter < dayData.list.length; counter++){
+      let targetDay = d.getFullYear() + "-0" + (d.getMonth() + 1) + "-" + (d.getDate() + targetDayCount) + " " + "12:00:00";
+      let currentDay = dayData.list[counter]; 
+      console.log(targetDay);
+      if(currentDay.dt_txt == targetDay) {
 
-// Pulling the month from the data for comparison 
-// Remember, JavaScript months are zero indexed 
-// to get the right moneth for comparison, you 
-// will need to add 1 to it 
-        console.log(weatherDate.getMonth() + 1); 
+        temp.push({
+          temp: currentDay.main.temp, 
+          description: currentDay.weather[0].description
+        }); 
+        console.log(temp);
+        targetDayCount++;
+      } 
+      if(targetDayCount > 6) break;
+    }
+        for(let i = 0; i < temp.length; i++){
+            document.getElementById("column" + i).innerHTML = temp[i];
+        }
 
-// Pulling the day of the month from the date object 
-        console.log(weatherDate.getDate()); 
-
-    
-          
-          //---------------------
-          console.log("failure...") 
-          // error message for user that API is down
-          //---------------------
-          
-      }
+  }
+  else {
+    //---------------------
+    console.log("failure...") 
+    // error message for user that API is down
+    //---------------------
+  }
   };
   xhttp.open("GET", url, true); 
   xhttp.send(); 
@@ -73,6 +62,6 @@ function loadDoc() {
 // Make sure you call the function to begin the request for information 
 // In the weather widget, you will want to call this function using the 
 // onClick event of the form submit button 
-loadDoc(); 
+window.onload = loadDoc; 
 //---------------------
-}
+
