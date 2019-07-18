@@ -36,7 +36,7 @@ function loadDoc() {
 
                     temp.push({temp: currentDay.main.temp, 
                                description: currentDay.weather[0].description
-                    }); 
+                             }); 
                     console.log(temp);
 
        } 
@@ -55,7 +55,7 @@ function loadDoc() {
 // Pulling the day of the month from the date object 
         console.log(weatherDate.getDate()); 
 
-      } else { 
+    
           
           //---------------------
           console.log("failure...") 
@@ -74,3 +74,4 @@ function loadDoc() {
 // onClick event of the form submit button 
 loadDoc(); 
 //---------------------
+}
