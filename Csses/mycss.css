@@ -297,7 +297,7 @@ table,th,td {
 		color: #f1f1f1;
 	  }
 
-	  .ui {
+	  #ui {
 	
 		display: block;
 		background-color: none;
@@ -306,8 +306,10 @@ table,th,td {
 		overflow :hidden;
 		color: white;
 	  }
+
+
 		
-	.column {
+	.column, div {
 		padding: 20px;
 		border-radius: 15px 50px 30px;
 		border: 2px solid grey;

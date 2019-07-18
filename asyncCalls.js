@@ -43,7 +43,8 @@ function loadDoc() {
       if(targetDayCount > 6) break;
     }
         for(let i = 0; i < temp.length; i++){
-            document.getElementById("column" + i).innerHTML = temp[i];
+            document.getElementById("column" + i).innerHTML = (temp[i].temp - 273) * 9/5 + 32;
+            document.getElementById("columnn" + i).innerHTML = temp[i].description; 
         }
 
   }
