@@ -10,7 +10,7 @@ function loadDoc() {
   
   var xhttp = new XMLHttpRequest(); 
   xhttp.onreadystatechange = function() { 
-      if (this.readyState == 4 && this.status == 200) { 
+    if (this.readyState == 4 && this.status == 200) { 
           
           //---------------------
           console.log("Successful..."); 
@@ -27,9 +27,10 @@ function loadDoc() {
        //console.log(dayData.list.length);  
       
        let d = new Date();
-       let targetDay = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate() + " " + "12:00:00";
+       let targetDayCount = 0;
        let temp = []; 
         for(let counter = 0; counter < dayData.list.length; counter++){
+            let targetDay = d.getFullYear() + "-0" + (d.getMonth() + 1) + "-" + (d.getDate() + targetDayCount) + " " + "12:00:00";
             let currentDay = dayData.list[counter]; 
             console.log(currentDay);
                 if(currentDay.dt_txt == targetDay) {
@@ -38,8 +39,8 @@ function loadDoc() {
                                description: currentDay.weather[0].description
                              }); 
                     console.log(temp);
-
-       } 
+                    targetDayCount++;
+                } 
        
 // Pulling out the dt_text value (date/time) 
 // and parsing it to a JavaScript date 
