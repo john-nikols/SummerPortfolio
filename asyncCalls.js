@@ -25,27 +25,35 @@ function loadDoc() {
        let dayData = JSON.parse(this.response);
       // console.log(dayData.list);  
        //console.log(dayData.list.length);  
-        
-       for(let counter = 0; counter < dayData.list.length; counter++){
-        let currentDay = dayData.list[counter]; 
-        console.log(currentDay);
+      
+       let d = new Date();
+       let targetDay = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate() + " " + "12:00:00";
+       let temp = []; 
+        for(let counter = 0; counter < dayData.list.length; counter++){
+            let currentDay = dayData.list[counter]; 
+            console.log(currentDay);
+                if(currentDay.dt_txt == targetDay) {
 
+                    temp.push({temp: currentDay.main.temp, 
+                               description: currentDay.weather[0].description
+                    }); 
+                    console.log(temp);
 
        } 
        
 // Pulling out the dt_text value (date/time) 
 // and parsing it to a JavaScript date 
-let weatherDate = new Date(currentDay.dt_txt + ' UTC'); 
-console.log(weatherDate); 
+        let weatherDate = new Date(currentDay.dt_txt + ' UTC'); 
+        console.log(weatherDate); 
 
 // Pulling the month from the data for comparison 
 // Remember, JavaScript months are zero indexed 
 // to get the right moneth for comparison, you 
 // will need to add 1 to it 
-console.log(weatherDate.getMonth() + 1); 
+        console.log(weatherDate.getMonth() + 1); 
 
 // Pulling the day of the month from the date object 
-console.log(weatherDate.getDate()); 
+        console.log(weatherDate.getDate()); 
 
       } else { 
           
